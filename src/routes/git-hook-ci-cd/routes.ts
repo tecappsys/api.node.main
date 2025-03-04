@@ -4,6 +4,7 @@ import { UpdateNodeMain, UpdateRepos } from '../../controllers/git-hook-ci-cd/Co
 
 const routes = Router();
 
+routes.post('/',VerifyGitHook,UpdateRepos);
 routes.post('/app',VerifyGitHook,UpdateRepos);
 routes.post('/node-main',VerifyGitHook,UpdateNodeMain);
 

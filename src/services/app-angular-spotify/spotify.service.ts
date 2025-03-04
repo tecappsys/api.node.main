@@ -6,9 +6,9 @@ class AppAngularSpotifyService {
     private token: string | null = null;
     private tokenExpiration: number | null = null;
 
-    private API_SPOTIFY = process.env.API_SPOTIFY;
-    private API_SPOTIFY_CLIENT_ID = process.env.API_SPOTIFY_CLIENT_ID!;
-    private API_SPOTIFY_CLIENT_SECRET = process.env.API_SPOTIFY_CLIENT_SECRET!;
+    private API_SPOTIFY = process.env.APP_ANGULAR_SPOTIFY_API_URL;
+    private API_SPOTIFY_CLIENT_ID = process.env.APP_ANGULAR_SPOTIFY_CLIENT_ID!;
+    private API_SPOTIFY_CLIENT_SECRET = process.env.APP_ANGULAR_SPOTIFY_CLIENT_SECRET!;
     private header = { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } };
 
     private constructor() {}
@@ -35,10 +35,10 @@ class AppAngularSpotifyService {
             payload.append("grant_type", "client_credentials");
             payload.append("client_id", this.API_SPOTIFY_CLIENT_ID);
             payload.append("client_secret", this.API_SPOTIFY_CLIENT_SECRET);
-
+            
             const response = await axios.post(url, payload, this.header);
 
-            this.token = response.data.access_token;
+            this.token = response.data;
             this.tokenExpiration = Date.now() + response.data.expires_in * 1000;
             log.info({title: 'APP_ANGULAR_SPOTIFY_SERVICE_GET_TOKEN',description:"Nuevo token de Spotify obtenido."});
 

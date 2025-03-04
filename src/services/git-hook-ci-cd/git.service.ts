@@ -26,12 +26,6 @@ export const verifySignature = (body: any, signature: string | undefined): boole
  * Ejecuta el script de despliegue de un repositorio
  */
 export const deployRepository = async (repo: string): Promise<string> => {
-    log.info({title:'CONST',description:`${REPO_SCRIPTS_PATH}`});
-    log.info({title:'CONST',description:`${repo}`});
-    log.info({title:'CONST',description:`${process.env[repo]}`});
-    log.info({title:'CONST',description:`${process.env.REPOS_PATH + repo}`});
-    log.info({title:'CONST',description:`${process.env.NODE_LOG_FILE}`});
-
     const deployCommand = `${REPO_SCRIPTS_PATH}repoToWebSite.sh ${repo} ${process.env[repo]} ${process.env.REPOS_PATH + repo} ${process.env.NODE_LOG_FILE}`;
 
     try {

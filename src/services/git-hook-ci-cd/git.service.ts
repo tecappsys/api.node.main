@@ -6,7 +6,7 @@ import { log } from "../../shared/core/utils/logger";
 
 const execPromise = util.promisify(exec);
 const GIT_HOOK_SECRET = process.env.GIT_HOOK_SECRET!;
-const REPO_SCRIPTS_PATH = path.join(__dirname, "../../scripts/");
+const REPO_SCRIPTS_PATH = path.join(__dirname, "../../../../scripts/");
 
 /**
  * Verifica la firma del GitHub Hook

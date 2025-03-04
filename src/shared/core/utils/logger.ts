@@ -1,6 +1,6 @@
 import winston from "winston";
 import path from "path";
-import { GenericLog } from "@core/interface/generic-log.interface";
+import { GenericLog } from "../interface/generic-log.interface";
 
 // Configuración de formatos de logs
 const logFormat = winston.format.printf(({ level, message, timestamp }) => {

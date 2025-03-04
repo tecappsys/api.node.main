@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
-import { badRequestResponse, successResponse } from "@shared/core/utils/aux-response";
-import { asyncHandler } from "@middlewares/core/asyncHandler";
-import { log } from "@core/utils/logger";
-import { deployNodeMain, deployRepository } from "@services/git-hook-ci-cd/git.service";
+import { asyncHandler } from "../../middlewares/core/asyncHandler";
+import { log } from "../../shared/core/utils/logger";
+import { badRequestResponse, successResponse } from "../../shared/core/utils/aux-response";
+import { deployNodeMain, deployRepository } from "../../services/git-hook-ci-cd/git.service";
 
 export const UpdateRepos = asyncHandler(async (req: Request, res: Response) => {
     const repo = req.body.repository?.name;

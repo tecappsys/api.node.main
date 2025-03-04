@@ -1,6 +1,5 @@
 import axios from "axios";
-import { log } from "@core/utils/logger";
-import { GenericLog } from "@shared/core/interface/generic-log.interface";
+import { log } from "../../shared/core/utils/logger";
 
 class AppAngularSpotifyService {
     private static instance: AppAngularSpotifyService;

@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
-import { verifySignature } from "@services/git-hook-ci-cd/git.service";
-import { log } from "@core/utils/logger";
+import { verifySignature } from "../../services/git-hook-ci-cd/git.service";
+import { log } from "../../shared/core/utils/logger";
 
 export const VerifyGitHook = (req: Request, res: Response, next: NextFunction) => {
     const signature = req.headers["x-hub-signature-256"] as string | undefined;

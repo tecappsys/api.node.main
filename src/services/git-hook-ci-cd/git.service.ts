@@ -2,7 +2,7 @@ import crypto from "crypto";
 import { exec } from "child_process";
 import util from "util";
 import path from "path";
-import { log } from "@core/utils/logger";
+import { log } from "../../shared/core/utils/logger";
 
 const execPromise = util.promisify(exec);
 const GIT_HOOK_SECRET = process.env.GIT_HOOK_SECRET!;

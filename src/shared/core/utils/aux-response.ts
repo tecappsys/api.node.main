@@ -1,7 +1,7 @@
 
 import { Response } from 'express';
-import { GenericResponse } from '@core/interface/generic-response.interfase';
-import { GenericResponseOptions } from '@core/interface/generic-response-options.interface';
+import { GenericResponseOptions } from '../interface/generic-response-options.interface';
+import { GenericResponse } from '../interface/generic-response.interfase';
 
 export const sendResponse = <T>(
     res: Response, 

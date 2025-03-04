@@ -1,8 +1,8 @@
 import express, { Application } from 'express';
 import cors from 'cors';
-import routes from '@routes/all-routes';
-import { requestRateLimit } from '@core/utils/helpers';
-import { errorHandler } from '@middlewares/core/errorHandler';
+import { requestRateLimit } from '../shared/core/utils/helpers';
+import routes from '../routes/all-routes';
+import { errorHandler } from '../middlewares/core/errorHandler';
 
 class expressConfig{
     constructor(server:Application){

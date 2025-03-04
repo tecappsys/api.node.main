@@ -1,8 +1,10 @@
 import express, { Application } from 'express';
 import rateLimit from 'express-rate-limit';
 import cors from 'cors';
-import routes from '../routes/all-routes';
 import { errorHandler } from '../middlewares/core/errorHandler';
+
+import APP_ANGULAR_SPOTIFY_ROUTES  from '../routes/app-angular-spotify/routes';
+import GIT_HOOK_CI_CD_ROUTES from '../routes/git-hook-ci-cd/routes';
 
 class expressConfig{
     constructor(server:Application){
@@ -29,7 +31,8 @@ class expressConfig{
         app.use( express.json() );
 
         // ROUTES
-        app.use(routes);
+        app.use('/app-angular-spotify', APP_ANGULAR_SPOTIFY_ROUTES);
+        app.use('/git-hook', GIT_HOOK_CI_CD_ROUTES);
 
         // Middleware global de manejo de errores
         app.use(errorHandler); 

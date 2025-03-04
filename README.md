@@ -7,3 +7,5 @@ SpotifyToken
 # Patron Service Layer + Middleware
 updateRepos 
 ✔ Lógica de negocio que interactúa con el sistema operativo
+
+# Ajustes

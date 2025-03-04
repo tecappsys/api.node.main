@@ -30,9 +30,9 @@ export const deployRepository = async (repo: string): Promise<string> => {
     log.info({title:'CONST',description:`${repo}`});
     log.info({title:'CONST',description:`${process.env[repo]}`});
     log.info({title:'CONST',description:`${process.env.REPOS_PATH + repo}`});
-    log.info({title:'CONST',description:`${process.env.LOG_FILE}`});
+    log.info({title:'CONST',description:`${process.env.NODE_LOG_FILE}`});
 
-    const deployCommand = `${REPO_SCRIPTS_PATH}repoToWebSite.sh ${repo} ${process.env[repo]} ${process.env.REPOS_PATH + repo} ${process.env.LOG_FILE}`;
+    const deployCommand = `${REPO_SCRIPTS_PATH}repoToWebSite.sh ${repo} ${process.env[repo]} ${process.env.REPOS_PATH + repo} ${process.env.NODE_LOG_FILE}`;
 
     try {
         log.info({title:'GIT_HOOK_CI_CD_SERVICE_DEPLOY_REPOSITORY',description:`Iniciando despliegue para ${repo}...`});
@@ -49,7 +49,7 @@ export const deployRepository = async (repo: string): Promise<string> => {
  * Ejecuta el script de despliegue del repositorio Node Main
  */
 export const deployNodeMain = async (repo: string): Promise<string> => {
-    const deployCommand = `${REPO_SCRIPTS_PATH}restartServer.sh ${repo} ${process.env[repo]} ${process.env.LOG_FILE}`;
+    const deployCommand = `${REPO_SCRIPTS_PATH}restartServer.sh ${repo} ${process.env[repo]} ${process.env.NODE_LOG_FILE}`;
 
     try {
         log.info({title:'GIT_HOOK_CI_CD_SERVICE_DEPLOY_NODE_MAIN',description:`Iniciando despliegue para ${repo}...`});

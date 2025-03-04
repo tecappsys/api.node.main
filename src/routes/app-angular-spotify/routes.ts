@@ -1,10 +1,9 @@
 import { Router } from 'express';
-import { ApiGet, SpotifyToken } from '../../controllers/app-angular-spotify.ts/Controller';
+import { SpotifyToken } from '../../controllers/app-angular-spotify.ts/Controller';
 
 const routes = Router();
 
-routes.get('/',ApiGet);
-routes.get('/spotify/token',SpotifyToken);
+routes.get('/token',SpotifyToken);
 
 
 export default routes;

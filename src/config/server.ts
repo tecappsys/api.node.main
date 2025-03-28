@@ -5,10 +5,12 @@ class Server {
 
     private app: Application;
     private port: number;
+    private internalIp:string
 
     constructor() {
         this.app  = express();
-        this.port = parseInt(process.env.PORT);        
+        this.port = parseInt(process.env.PORT);     
+        this.internalIp = process.env.INTERNAL_IP  
         this.middlewares();
         const expressApp = new expressConfig(this.app);
         expressApp;
@@ -19,10 +21,7 @@ class Server {
     }
 
     listen() {
-        // this.app.listen( this.port,"0.0.0.0", () => {
-        //     console.log(`SERVIDOR CORRIENDO EN PUERTO ${this.port}`);
-        // })
-        this.app.listen( this.port, () => {
+        this.app.listen( this.port, this.internalIp, () => {
             console.log(`SERVIDOR CORRIENDO EN PUERTO ${this.port}`);
         })
     }
